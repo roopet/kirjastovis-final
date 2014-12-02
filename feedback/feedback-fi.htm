@@ -1,0 +1,68 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Palaute yleisten kirjastojen tilastojen visualisoinnista</title>
+
+<style type="text/css">
+form.email p {
+font-size: 15px;
+padding: 0 0 10px 0;
+margin: 0;
+}
+
+form.email input, form.email textarea {
+font-family: Arial;
+font-size: 15px;
+margin: 0 0 20px 0;
+}
+
+form.email input {
+background: #f5f5f5;
+padding: 5px;
+border: 1px solid #bbb;
+border-radius: 5px;
+}
+
+form.email textarea {
+background: #f5f5f5;
+padding: 5px;
+border: 1px solid #bbb;
+border-radius: 5px;
+width: 400px;
+height: 250px;
+}
+
+form.email input.send {
+color: #fff;
+background: #222;
+border: #000;
+padding: 10px 25px 10px 25px;
+cursor: pointer;
+}
+</style>
+
+</head>
+<body>
+
+<h1>Palaute yleisten kirjastojen tilastojen visualisoinnista</h1>
+
+<form class="email" action="mailer.php" method="post">
+<p>Nimi:</p>
+<input type="text" name="nimi" />
+<p>E-mail:</p>
+<input type="text" name="email" />
+<!--<p>Aihe:</p>
+<input type="text" name="aihe" /> -->
+<p>Viesti:</p>
+<textarea name="viesti"></textarea></p>
+<p>T&auml;m&auml;n kysymyksen tarkoituksena on tarkistaa oletko oikea k&auml;ytt&auml;j&auml; ja est&auml;&auml; automaattinen roskapostitus.</p>
+<br />
+<p>Mik&auml; kirjain puuttuu seuraavan sanan lopusta? <br /> Kirjast_</p>
+<input type="text" name="captcha" />
+<input class="send" type="submit" value="L&auml;het&auml;">
+</form>
+
+</body>
+</html>

@@ -1,0 +1,315 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<title>Kirjastotilastot visulisoituna</title>
+
+		<link rel="stylesheet" href="css/styles5.css">
+		<link rel="stylesheet" href="css/toggle-switch.css">
+	<!--	<link rel="stylesheet" href="css/chosen.css" /> -->
+		<link rel="stylesheet" href="css/select2.css">
+		<!--	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.0-rc.1/jquery.mobile-1.3.0-rc.1.min.css" /> 
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.css" /> -->
+		<link rel="stylesheet" href="css/jquery.mobile-1.3.0-rc.1.css" /> 
+
+		<link rel="stylesheet" href="css/foundation.css" />
+		<!--        <link rel="stylesheet" href="http://www.kirjastot.fi/sites/default/files/css/css_VZs4OAC7cu8o3UNMxqeDe0QQ8vvQ3GAhH8wlAZhCcC4.css?ndsf4y" media="all" /> -->
+
+		<!--	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script> 
+
+-->
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+		<script src="http://code.jquery.com/mobile/1.3.0-rc.1/jquery.mobile-1.3.0-rc.1.min.js"></script>
+
+		<!--
+<script src="http://code.jquery.com/mobile/1.3.0-rc.1/jquery.mobile-1.3.0-rc.1.min.js"></script>
+<script src="../../js/highcharts.js"></script>
+<script src="http://code.highcharts.com/highcharts.js"></script>
+<script src="../../js/modules/map.js"></script> -->
+
+		<script src="js/highcharts.src.js"></script>
+		<script src="http://code.highcharts.com/maps/modules/map.js"></script>
+		<!--	<script src="http://code.highcharts.com/modules/exporting.js"></script> -->
+		<script src="js/exporting.src2.js"></script> 
+		<script type="text/javascript" src="http://code.highcharts.com/modules/data.js"></script>
+		<script type="text/javascript" src="http://code.highcharts.com/modules/drilldown.js"></script>
+
+		<link href="css/simple-slider2.css" rel="stylesheet" type="text/css" />
+		<link href="css/simple-slider-volume.css" rel="stylesheet" type="text/css" />
+
+		<script src="js/foundation.min.js"></script> 
+		<script src="js/foundation.dropdown.js"></script>
+
+		<script src="data/kirjastot1a.js"></script>
+		<script src="data/maakunnat.js"></script>
+		<script src="data/suomi.js"></script>
+		<script src="js/simple-slider.js"></script>
+		<script src="js/select2.js"></script>
+	<!--	<script src="js/chosen.jquery.min.js" ></script> -->
+
+		<script src="js/init.js"></script>
+	</head>
+	<body>
+
+
+		<iframe width="100%" scrolling="no" height="35" frameborder="0" src="http://gfx.kirjastot.fi/kifi/kirjastotfi-banner.html"></iframe>
+		<div id="wrapper">
+
+			<div id="teksti">
+				<h4>Suomen yleisten kirjastojen tilastot</h4>
+				<br>
+				<p padding="4px !important">Tervetuloa Suomen yleisten kirjastojen tilastojen visualisointiin. Visualisoinnin avulla voit tutustua kirjastojen avaintunnuslukuhin sekä niiden muutoksiin vuosina 1999-2013. Kaikkiin tilastoihin voi tutustua osoitteessa <a href="http://tilastot.kirjastot.fi/"title="tilastot.kirjastot.fi">tilastot.kirjastot.fi</a>. Palautetta ja kehittämisehdotuksia visualisointiin liittyen voi lähettää oheisesta <a href="javascript: openwindow()"title="palaute">linkistä</a>.</p>
+
+				<div id="nappulat">
+
+					<div class="click-nav">
+						<ul class="no-js">
+							<li>
+								<a class="clicker">Valitse muuttuja </a>
+								<ul>
+									<li><a href="#lainauksetpa">Kokonaislainaus / asukasluku</a></li>
+									<li><a href="#kokoelmat">Kokoelmat / asukasluku</a></li>
+									<li><a href="#hankinnatpa">Hankinnat / (asukasluku / 1000)</a></li>
+									<li><a href="#lainaajia">Lainaajat / asukasluku</a></li>
+									<li><a href="#kaynnit">Fyysiset käynnit / asukasluku</a></li>
+									<li><a href="#toimintakulut">Toimintakulut / asukasluku</a></li>
+									<li><a href="#htv">Henkilötyövuodet / (asukasluku / 1000)</a></li>
+									<li><a href="#lainaukset">Lainaukset</a></li>
+									<li><a href="#hankinnat">Hankinnat</a></li>
+									<li><a href="#aotunnit">Aukiolotunnit</a></li>
+									<li><a href="#tapahtumat">Tapahtumat</a></li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+					
+				</div>
+
+				
+				<div class="buttonsx">
+
+
+
+    <fieldset data-role="controlgroup" data-type="horizontal">
+        <legend>Vaihda karttapohjaa:</legend>
+        <input type="radio" name="radio-choice" id="radio-choice-1" value="choice-1" checked="checked" data-mini="true" />
+        <label for="radio-choice-1">Kunnat</label>
+
+        <input type="radio" name="radio-choice" id="radio-choice-2" value="choice-2" data-mini="true"  />
+        <label for="radio-choice-2">Maakunnat</label>
+
+
+    </fieldset>
+</div>
+
+<div class="slider-button">
+    <form>
+
+        <div id="slider1">
+        <p1>Vaihda vuotta: </p1><span id="str">" "</span>
+        <!---	<input type="text" data-slider="true" data-slider-values="1999,2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013"> -->
+						<input type="text" data-slider="true" data-slider-values="1,2,3,4,5,6,7,8,9,10,11,12,13,14,15" value="15">
+						</div>
+
+					</form>
+				</div>
+				<div class="buttons">
+					<input type="button" id="excel" value="Lataa excel" onClick="loadExcel()">
+					<input type="button" id="ohjeet" value="Ohjeet" data-text-swap="Piilota ohjeet" data-text-original="Näytä ohjeet" onClick="triggeri()">
+					
+				</div>
+
+				<div class="panel">
+					<h5>Kuinka visualisointi toimii?</h5>
+					<br>
+					<h6>Päävalikko</h6>
+					<p>Visualisoitavaa tunnuslukua voi vaihtaa vasemmalla olevasta ylimmästä valikosta. Kartan ja pylväskaavion esittämää vuotta voi vaihtaa Vaihda vuotta -kohdan liukusäätimellä. Lataa excel-painikkeesta saa ladattua kulloinkin valittuna olevan muuttujan tiedot excel-tiedostona.  </p>
+					<br>
+					<h6>Kartta</h6>
+					<p>Karttapohjaa kuntien ja maakuntien välillä voi vaihtaa sivupalkissa olevasta valikosta.  Klikkaamalla yksittäistä kuntaa/maakuntaa kartalla, avautuu alaoikealla sijaitsevaan aikasarjakaavioon kunnan historia valittuna olevan muuttujan osalta. Painamalla shift-,ctrl- tai cmd-näppäintä pohjassa (kosketuslaitteissa: painamalla uutta aluetta), voi aikasarjakaavioon valita useamman alueen vertailtavaksi. Ominaisuus säilyy, vaikka välillä vaihtaisikin karttapohjaa. </p>
+					<br>
+					<h6>Pylväskaavio</h6>
+					<p>Maakuntia klikkaamalla pääsee näkemään kyseisen maakunnan kunnat. Klikkaamalla uudelleen mitä tahansa kuntaa palaa näkymä maakuntiin.</p>
+					<br>
+					<h6>Tulostaminen</h6>
+					<p>Jokaisen kaavion oikeassa yläkulmassa sijaitsee tulostus-valikko, jonka avulla kaavion voi tulostaa tai ladata eri kuvaformaateissa.</p>
+					<span id='close' onclick="triggeri()">[sulje]</span>
+				</div>
+
+			<!--	<input type="hidden" multiple id="e10_2" style="width:100%" class="populate"/> -->
+				<input type="hidden" multiple id="e10_2" style="width:100%">
+
+			</div>
+
+			<div id="map-and-slider"> 
+				<div id="map-container" class="needreflow">					
+				</div>
+
+			</div>
+
+
+
+			<div id="middle-container">						
+
+				<div id="bar-container" class="needreflow">
+				</div>
+
+				<div id="info" class="needreflow">
+				</div>
+
+			</div>
+
+
+
+
+		</div>
+		<div id="footer">
+			<p>Toteutus: <a href="http://www.vividin.fi" class="grey" title="Vividin">Vividin Oy</a>
+		</div>
+	<!--	<div id="footer2">
+			<p>&copy; <a href="http://www.vividin.fi" class="grey" title="Vividin">Opetus- ja kulttuuriministeriö</a>
+		</div> -->
+
+		<script src="js/BarChart.js"></script>
+		<script src="js/MapVis.js"></script>
+
+		<script>
+
+			function loadExcel() {
+				$('excel').toggleClass('ui-btn-active');
+				if (location.hash === "#lainauksetpa") {
+					window.location.assign("http://tilastot.kirjastot.fi/LibraryStatistics/File/Report_60b1ca5db0254d099ac8e6a643544958.xls?QueryId=5d002d84-36b4-6627-ed03-3e06872b04e3&CultureId=fi-FI");
+				} else if (location.hash === "#kokoelmat") {					
+					window.location.assign("http://tilastot.kirjastot.fi/LibraryStatistics/File/Report_74a771fa80b8451cb82cd676fe3c6646.xls?QueryId=23819368-6355-95f7-7a34-1da5375830d8&CultureId=fi-FI");
+				} else if (location.hash === "#hankinnatpa") {
+					window.location.assign("http://tilastot.kirjastot.fi/LibraryStatistics/File/Report_2d853f456952400484508af00a887414.xls?QueryId=93ad7fac-a597-dace-2d0a-00da1987a23e&CultureId=fi-FI");
+				} else if (location.hash === "#hankinnat") {
+					window.location.assign("http://tilastot.kirjastot.fi/LibraryStatistics/File/Report_4567e88a36e84ad496ecd72c491fc4c4.xls?QueryId=5876f0f4-2911-5917-ec0c-6032fa933521&CultureId=fi-FI");
+				} else if (location.hash === "#lainaukset") {
+					window.location.assign("http://tilastot.kirjastot.fi/LibraryStatistics/File/Report_da17492916ca4afc85f02736fbe12fd5.xls?QueryId=98d82343-e5b9-512f-070a-772e66babf35&CultureId=fi-FI");
+				} else if (location.hash === "#lainaajia") {
+					window.location.assign("http://tilastot.kirjastot.fi/LibraryStatistics/File/Report_90b9c431cce848c7b39ee811e0cc6f64.xls?QueryId=79a8e420-3e5b-ccaf-1e9e-1a11aefabd2f&CultureId=fi-FI");
+				} else if (location.hash === "#tapahtumat") {
+					window.location.assign("http://tilastot.kirjastot.fi/LibraryStatistics/File/Report_cf49e15637904209a4a56d5da5d31ba6.xls?QueryId=67223e83-35be-4f1c-3ad2-550abcea928f&CultureId=fi-FI");
+				} else if (location.hash === "#htv") {
+					window.location.assign("http://tilastot.kirjastot.fi/LibraryStatistics/File/Report_2f7d095dcc4f41a0b0bc25d3ee64b0ec.xls?QueryId=dd9658d5-702f-96b8-e076-7c18b6226420&CultureId=fi-FI");
+				} else if (location.hash === "#toimintakulut") {
+					window.location.assign("http://tilastot.kirjastot.fi/LibraryStatistics/File/Report_e9880a306a614566af4cc3c4a17611f6.xls?QueryId=e3e83a73-8cc0-f194-bf09-3da2e26b6394&CultureId=fi-FI");
+				} else if (location.hash === "#aotunnit") {
+					window.location.assign("http://tilastot.kirjastot.fi/LibraryStatistics/File/Report_1038a8779cc64257b600cfffc33f7f7a.xls?QueryId=5f9c9c03-7ac3-b345-ed1a-ae10a841ddf5&CultureId=fi-FI");
+				} else if (location.hash === "#kaynnit") {
+					window.location.assign("http://tilastot.kirjastot.fi/LibraryStatistics/File/Report_548642fa5d4b43d3a48a84e35246b96a.xls?QueryId=f287d687-234f-96a5-eff2-c918acf2f550&CultureId=fi-FI");					
+				}
+			}
+
+
+				function triggeri() {
+					$(".panel").toggle("fast");
+					$('ohjeet').toggleClass('ui-btn-active');
+					console.log(names);
+					return false;
+				}
+			/*
+			var chosenSelector = $(".chosen-select");
+			chosenSelector.chosen({
+				disable_search: false,
+//			 max_selected_options: 4,
+				no_results_text: "Etsim��si kohderyhm�� ei l�ydy"
+			});
+
+
+			chosenSelector.change(function(evt, params){
+				var vals = $(this).val() || [];
+				console.log(vals);
+				var valsString = "";
+				var searchtesti = vals;
+				if (vals.length > 0) {
+					valsString = vals.join(", ");
+				}
+//      $('#str').html(valsString);
+				return chart.updateSearchx(searchtesti);
+			});
+			 */
+
+
+			$(function () {
+				$('.click-nav > ul').toggleClass('no-js js');
+				$('.click-nav .js ul').hide();
+				$('.click-nav .js').click(function(e) {
+					$('.click-nav .js ul').slideToggle(200);
+					$('.clicker').toggleClass('active');
+					e.stopPropagation();
+				});
+				$(document).click(function() {
+					if ($('.click-nav .js ul').is(':visible')) {
+						$('.click-nav .js ul', this).slideUp();
+						$('.clicker').removeClass('active');
+					}
+				});
+			});
+
+			window.onload = function(){
+				if (location.hash === "") {
+					location.href="index.html#lainauksetpa";
+				}
+			};
+
+			function openwindow()
+			{
+				window.open("feedback/feedback-fi.htm","mywindow","menubar=1,resizable=1,width=650,height=700");
+			}
+			function format(item) { return item.id; };
+
+		/*	var names = [{"id":"1","id":"Adair,James"}
+				, {"id":"2","id":"Anderson,Peter"}
+				, {"id":"3","id":"Armstrong,Ryan"}] */
+			var names = "js/kirjastot1a.js";
+		//	var names = namesx.sort();
+
+
+			$("#e10_2").select2({
+				data:{ results: Highcharts.maps.kirjastot1a, text: 'id' },
+				multiple: true,
+				placeholder: "Valitse alue",
+				closeOnSelect: false,
+			//	width: 300px,
+				formatSelection: format,
+				triggerChange: true,
+				formatResult: format,
+				initSelection : function (element, callback) {
+					var data = {id: element.val(), text: element.val()};
+				//	var data = {id: element.val(), text: 'id' }
+					callback(data);
+					console.log(data);
+			//		alert("Selected value is: "+$("#e10_2").select2("val"));
+				}
+			});
+			$("#e10_2")
+	//		var data = {id: element.val(), text: element.val()};
+				//	.on("change", function(e) {
+						.on("select2-selecting", function(e) {
+					//	console.log(JSON.stringify({val:e.val, choice: e.val, added:e.val, removed:e.removed}));
+						console.log(e.val);
+						mapChart.get(e.val).select(true, true);
+					}
+			)
+							.on("select2-removed", function(e) {
+								mapChart.get(e.val).select(false, true);
+							}
+			);
+
+		//	.on("change", function(e) { console.log("change "+JSON.stringify({val:e.val, added:e.added, removed:e.removed})); });
+
+			//		.on("change", function(e) { console.log("change "+JSON.stringify({val:e.val, added:e.added, removed:e.removed})); })
+
+
+
+
+
+
+		</script>
+
+	</body>
+</html>
