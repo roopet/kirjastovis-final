@@ -286,29 +286,17 @@
 			//		alert("Selected value is: "+$("#e10_2").select2("val"));
 				}
 			});
+			
 			$("#e10_2")
-	//		var data = {id: element.val(), text: element.val()};
-				//	.on("change", function(e) {
-						.on("select2-selecting", function(e) {
-					//	console.log(JSON.stringify({val:e.val, choice: e.val, added:e.val, removed:e.removed}));
-						console.log(e.val);
-						mapChart.get(e.val).select(true, true);
+				.on("change", function(e) {
+					if (e.added) {
+						mapChart.get(e.added.id).select(true, true);
 					}
-			)
-							.on("select2-removed", function(e) {
-								mapChart.get(e.val).select(false, true);
-							}
-			);
-
-		//	.on("change", function(e) { console.log("change "+JSON.stringify({val:e.val, added:e.added, removed:e.removed})); });
-
-			//		.on("change", function(e) { console.log("change "+JSON.stringify({val:e.val, added:e.added, removed:e.removed})); })
-
-
-
-
-
-
+					if (e.removed) {
+						mapChart.get(e.removed.id).select(false, true);
+					}
+				});
+			
 		</script>
 
 	</body>

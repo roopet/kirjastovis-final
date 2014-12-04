@@ -5,7 +5,7 @@ $(function () {
 		colors:	['#7cb5ec', "#F3EA3C", "#369A22", "#981B39", "#02BADD", "#F537F3", "#FE8E20", "#AAB517", "#2D48AC", "#E4A8C5", "#E22590", "#5B6316", "#B424A7", "#5D3015", "#CF78F5", "#57306B", "#B07E1F", "#E67484", "#3D7EB2", "#15964C", "#8A4FDB", "#CFB14B", "#6BC45B", "#12701B", "#71AB0C", "#8E114D", "#F153F7"]
 	});
 });
-var mapCHart
+var mapChart;
 
 /* Returns MapVis */
 var newMapVis = function() {
@@ -314,6 +314,9 @@ var newMapVis = function() {
 						countryChart = $('#info').highcharts(MapVis.countryChartSettings).highcharts();
 					}
 					
+					// Array of selected areas
+					var select2Selections = [];
+					
 					$.each(points, function (i, i2) {
 						var seriesParams = {
 							name: countries[this.code3].name,
@@ -338,17 +341,23 @@ var newMapVis = function() {
 							countryChart.addSeries(seriesParams, false);
 					
 						}
-						console.log(this.id);
+						
+						// Push selected area to selected areas -array
+						select2Selections.push({id: this.id, text: this.id});
+						
 					//	console.log(points.i);
 					//	$("#e10_2").select2("val", "Kolari");
 					//	$("#e10_2").select2("data", [{id: countries[this.code3].code3, text: countries[this.code3].code3}]);
-						$("#e10_2").select2("data", [{id: this.id, text: this.id}]);
 					//	$("#e10_2").select2("val", countries[this.code3].code3);
 					//	$("#e10_2").val(countries[this.code3].code3).trigger("change");
 
 				//	$("#e8_2_set2").click(function () { $("#e8_2").select2("data", [{id: "CA", text: "California"},{id:"MA", text: "Massachusetts"}]); });
 						
 					});
+					
+					// Update select2 selections with selected areas
+					$("#e10_2").select2("data", select2Selections);
+					
 					while (countryChart.series.length > points.length) {
 						countryChart.series[countryChart.series.length - 1].remove(false);
 					}
